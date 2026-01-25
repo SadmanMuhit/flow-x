@@ -11,6 +11,8 @@ import { Button } from '../ui/button';
 import { Checkbox } from "@/components/ui/checkbox";
 import { useAuth } from '@/hooks/useAuth';
 import { toast } from 'sonner';
+
+
 interface AuthMOdalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
@@ -80,6 +82,7 @@ const AuthModal = ({isOpen, onOpenChange}: AuthMOdalProps) => {
             if(ok){
                 toast.success("Succefully Login");
                 onOpenChange(false);
+                window.location.reload();
             }
         }catch(err){
             if(err instanceof z.ZodError){
